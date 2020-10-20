@@ -1,0 +1,226 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="utf-8">
+  <base href="dist/base.html">
+  <title>SE-VVC - Selective Encryption of the Versatile Video Coding Standard</title>
+  <script type="module" src="https://unpkg.com/img-comparison-slider@latest/dist/component/component.esm.js"></script>
+  <script nomodule="" src="https://unpkg.com/img-comparison-slider@latest/dist/component/component.js"></script>
+  <script src="jquery-3.5.1.min.js"></script>
+  <link rel="stylesheet" href="dist/initial.css">
+  <link rel="stylesheet" href="style.css">
+</head>
+
+<body>
+  <div id="tile">
+    <h1>Selective Encryption of the Versatile Video Coding Standard</h1>
+    <div id="author_container">
+      <p class="author"><b>Guillaume Gautier</b><br />INSA Rennes<br />IETR VAADER</p>
+      <p class="author"><b>Mousa FarajAllah</b><br />Palestine Polytechnic University</p>
+      <p class="author"><b>Wassim Hamidouche</b><br />INSA Rennes<br />IETR VAADER</p>
+      <p class="author"><b>Olivier Deforges</b><br />INSA Rennes<br />IETR VAADER</p>
+      <p class="author"><b>Safwan El Assad</b><br />Polytech Nantes<br />IETR VAADER</p>
+    </div>
+    <hr />
+    <h2 style="padding: 0 10%;">Abstract</h2>
+    <p style="text-align: justify; padding: 0 10%;">
+      Versatile Video Coding (VVC) is the next generation video coding standard developed by the Joint Video Experts Team (JVET) jointly established by Moving Picture Experts Group (MPEG) and ITU-T.
+      VVC standard was released in July 2020.
+      It introduces several new coding tools providing a significant coding gain over the High Efficiency Video Coding (HEVC) standard.
+      It is well known that increasing the coding efficiency adds more dependencies in the video bitstream making format-compliant encryption with the standard more challenging.
+      In this paper we tackle the problem of selective encryption of the VVC standard in format-compliant and constant bitrate.
+      These two constraints ensure that the encrypted bitstream can be decoded by any VVC decoder while the bitrate remains unchanged by the encryption.
+      The selective encryption of all possible VVC syntax elements is investigated.
+      A new algorithm is proposed to encrypt in format-compliant and constant bitrate the Transform Coefficients (TCs) together with other syntax elements at the level of the entropy encoder.
+      The proposed solution is implemented and assessed under the VVC reference software model version 6.0.
+      Experimental results showed that the encryption drastically decreases the video quality and remains robust against several types of attacks.
+      The encryption space is estimated in the range of 15% to 26% of the bitstream size resulting in a lightweight encryption/decryption process.
+    </p>
+    <hr />
+    <h2 style="padding: 0 10%;">Demo</h2>
+    <div id="demo_container">
+      <img-comparison-slider>
+        <img id="plain" slot="after" src="" width="100%">
+        <img id="cipher" slot="before" src="" width="100%">
+      </img-comparison-slider>
+
+      <form>
+        <label for="ed-select" style="width: 15%;">Edge Dectection:
+          <select name="edsel" id="edselect">
+            <option value='false' selected>off</option>
+            <option value='true'>on</option>
+          </select>
+        </label>
+
+        <label for="sequence-select" style="width: 50%;">Select sequence:
+          <select name="sequences" id="seqselect">
+            <optgroup label="Class A1">
+              <option value="JVET_SDRA1_Campfire_3840x2160_30_" selected>Campfire </option>
+              <option value="JVET_SDRA1_FoodMarket4_3840x2160_60_">FoodMarket4 </option>
+              <option value="JVET_SDRA1_Tango2_3840x2160_60_">Tango2 </option>
+            </optgroup>
+            <optgroup label="Class A2">
+              <option value="JVET_SDRA2_CatRobot1_3840x2160_60_">CatRobot1 </option>
+              <option value="JVET_SDRA2_DaylightRoad2_3840x2160_60_">DaylightRoad2 </option>
+              <option value="JVET_SDRA2_ParkRunning3_3840x2160_50_">ParkRunning3 </option>
+            </optgroup>
+            <optgroup label="Class B">
+              <option value="JVET_SDRB_BasketballDrive_1920x1080_50_"> BasketballDrive </option>
+              <option value="JVET_SDRB_BQTerrace_1920x1080_60_"> BQTerrace </option>
+              <option value="JVET_SDRB_Cactus_1920x1080_50_"> Cactus </option>
+              <option value="JVET_SDRB_MarketPlace_1920x1080_60_"> MarketPlace </option>
+              <option value="JVET_SDRB_RitualDance_1920x1080_60_"> RitualDance </option>
+            </optgroup>
+            <optgroup label="Class C">
+              <option value="JVET_SDRC_BasketballDrill_832x480_50_"> BasketballDrill </option>
+              <option value="JVET_SDRC_BQMall_832x480_60_"> BQMall </option>
+              <option value="JVET_SDRC_PartyScene_832x480_50_"> PartyScene </option>
+              <option value="JVET_SDRC_RaceHorsesC_832x480_30_"> RaceHorsesC </option>
+            </optgroup>
+            <optgroup label="Class D">
+              <option value="JVET_SDRD_BasketballPass_416x240_50_"> BasketballPass </option>
+              <option value="JVET_SDRD_BlowingBubbles_416x240_50_"> BlowingBubbles </option>
+              <option value="JVET_SDRD_BQSquare_416x240_60_"> BQSquare </option>
+              <option value="JVET_SDRD_RaceHorses_416x240_30_"> RaceHorses </option>
+            </optgroup>
+            <optgroup label="Class E">
+              <option value="JVET_SDRE_FourPeople_1280x720_60_"> FourPeople </option>
+              <option value="JVET_SDRE_Johnny_1280x720_60_"> Johnny </option>
+              <option value="JVET_SDRE_KristenAndSara_1280x720_60_"> KristenAndSara </option>
+            </optgroup>
+            <optgroup label="Class F">
+              <option value="JVET_SDRF_ArenaOfValor_1920x1080_60_"> ArenaOfValor </option>
+              <option value="JVET_SDRF_BasketballDrillText_832x480_50_"> BasketballDrillText </option>
+              <option value="JVET_SDRF_SlideEditing_1280x720_30_"> SlideEditing </option>
+              <option value="JVET_SDRF_SlideShow_1280x720_20_"> SlideShow </option>
+            </optgroup>
+          </select>
+        </label>
+
+        <label for="qp-select" style="width: 15%;">Select QP:
+          <select name="qp" id="qpselect">
+            <option value="17" selected>17</option>
+            <option value="22">22</option>
+            <option value="27">27</option>
+            <option value="32">32</option>
+            <option value="37">37</option>
+          </select>
+        </label>
+
+        <label for="frame-select" style="width: 15%;">Select Frame:
+          <select name="frame" id="frameselect">
+            <option value="0" selected>0</option>
+            <option value="10">10</option>
+            <option value="12">12</option>
+            <option value="22">22</option>
+            <option value="29">29</option>
+          </select>
+        </label>
+      </form>
+    </div>
+
+    <hr />
+    <h2 style="padding: 0 10%;">Result Tables</h2>
+    <form>
+      <label for="table-select" style="width: 15%;">Select Table:
+        <select name="table" id="tableselect">
+          <optgroup label="Quality metrics">
+            <option value="psnr" selected>PSNR</option>
+            <option value="ssim">SSIM</option>
+            <option value="vmaf">VMAF</option>
+          </optgroup>
+          <optgroup label="Security metrics">
+            <option value="eq">Encryption Quality</option>
+            <option value="edr">Edge Differential Ratio</option>
+            <option value="uacinpcr">UACI and NPCR</option>
+          </optgroup>
+          <optgroup label="Complexity metrics">
+            <option value="time">Complexity Overhead</option>
+          </optgroup>
+        </select>
+      </label>
+    </form>
+    <div id="tablecontainer">
+    </div>
+  </div>
+  <script type="text/javascript">
+    var frame_orig = 'frames/';
+    var extension = '.jpg';
+    var plainsuffix = '_VTM_RA_plain_frame';
+    var ciphersuffix = '_VTM_RA_cipher_frame';
+    var edsuffix = '_ED';
+    var qp = '17';
+    var ed = false;
+    var name = 'JVET_SDRC_RaceHorsesC_832x480_30_';
+    var frame = '0';
+    var tablename;
+
+    seqselect.addEventListener('change', function(e) {
+      readName();
+      updateImages()
+    });
+
+    edselect.addEventListener('change', function(e) {
+      readED();
+      updateImages()
+    });
+
+    qpselect.addEventListener('change', function(e) {
+      readQP();
+      updateImages()
+    });
+
+    frameselect.addEventListener('change', function(e) {
+      readFrame();
+      updateImages()
+    });
+    tableselect.addEventListener('change', function(e) {
+      readTableName();
+      updateTable();
+    });
+
+    window.onload = function() {
+      readName();
+      readQP();
+      readED();
+      updateImages();
+      readTableName();
+      updateTable();
+    };
+
+    function updateTable() {
+      $('#tablecontainer').load('tables/' + tablename + '.html');
+    }
+
+    function updateImages() {
+      var suffix = ed ? edsuffix : '';
+      document.getElementById('plain').src = frame_orig + name + qp + plainsuffix + frame + suffix + extension;
+      document.getElementById('cipher').src = frame_orig + name + qp + ciphersuffix + frame + suffix + extension;
+    }
+
+    function readTableName() {
+      tablename = tableselect.value;
+    }
+
+    function readName() {
+      name = seqselect.value;
+    }
+
+    function readED() {
+      ed = (edselect.value === 'true');
+    }
+
+    function readQP() {
+      qp = qpselect.value;
+    }
+
+    function readFrame() {
+      frame = frameselect.value;
+    }
+  </script>
+
+
+</body>
+
+</html>

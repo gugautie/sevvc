@@ -1,0 +1,60 @@
+  body {
+    /* background-color: #aeaeae; */
+    /* color: #FFF; */
+    width: 60%;
+    padding: 10px;
+    margin: auto;
+    font-family: Arial, Helvetica, sans-serif;
+  }
+
+  img-comparison-slider {
+    width: 100%;
+    margin: auto;
+    background: none;
+  }
+
+  h1 {
+    width: 100%;
+    margin-top: 4%;
+    text-align: center;
+  }
+
+  table,
+  th,
+  td {
+    padding: 5px;
+    border: 1px solid black;
+    border-collapse: collapse;
+  }
+
+  #tile {
+    /* background: #aeaeae; */
+    padding: 10px;
+  }
+  #tablecontainer table {
+    width:100%;
+    padding: 0;
+    text-align: center;
+
+  }
+  #demo_container  form label{
+    width: 24%;
+    margin: 0;
+    display: inline-block;
+    text-align: center;
+
+  }
+
+  #author_container {
+    margin: 4% 0;
+    padding: 0;
+  }
+
+  #author_container p {
+    width: 19%;
+    margin: 0;
+    display: inline-block;
+    text-align: center;
+    vertical-align: middle;
+    /* background: #ff0000; */
+  }
